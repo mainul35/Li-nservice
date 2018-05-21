@@ -73,8 +73,8 @@ public class UserService implements UserDetailsService {
 		return true;
 	}
 
-//	public void delete(Long id) {
-//		// TODO Auto-generated method stub
-//		userRepository.deleteById(id);
-//	}
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		userRepository.deleteById(id);
+	}
 }
