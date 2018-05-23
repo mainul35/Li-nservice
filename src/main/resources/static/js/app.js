@@ -2,7 +2,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const $ = require('jquery');
 const axios = require('axios');
-import {FrontEndHeader} from './template_components/front_end/header';
+import {FrontEndHeader} from './template_components/landing/header';
 import '../styles/main.scss';
 
 class Employee extends React.Component {
@@ -69,4 +69,4 @@ class App extends React.Component {
 	}
 }
 
-ReactDOM.render(<App />, document.getElementById('react'));
+ReactDOM.render(<FrontEndHeader />, document.getElementById('react'));
