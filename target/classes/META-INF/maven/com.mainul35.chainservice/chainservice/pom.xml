@@ -135,13 +135,6 @@
 					</execution>
 					
 					<execution>
-						<id>webpack build</id>
-						<goals>
-							<goal>webpack</goal>
-						</goals>
-					</execution>
-					
-					<execution>
 						<id>npm run build</id>
 						<goals>
 							<goal>npm</goal>
