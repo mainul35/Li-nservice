@@ -3,12 +3,9 @@ const ReactDOM = require('react-dom');
 const $ = require('jquery');
 const axios = require('axios');
 
-import {AntButton} from './components/AndDesign/AntButton';
+import {AntButton} from './components/AntDesign/AntButton';
 
 import '../styles/main.scss';
-
-
-
 
 class Employee extends React.Component {
 	render() {
@@ -74,4 +71,7 @@ class App extends React.Component {
 	}
 }
 
-ReactDOM.render(<AntButton> text</AntButton>, document.getElementById('react'));
+ReactDOM.render(
+	<AntButton onClick={alert('Click function triggered!')}> Click Me</AntButton>,
+	document.getElementById('react')
+);
