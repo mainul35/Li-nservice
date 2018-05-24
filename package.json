@@ -45,7 +45,7 @@
 	},
 	"scripts": {
 		"watch": "webpack --watch -d",
-		"build": "webpack --watch -d",
+		"build": "babel trasnpile && webpack --watch -d",
 		"dev-server": "webpack-dev-server"
 	},
 	"devDependencies": {
