@@ -1,5 +1,127 @@
-.header__title{
-    font-size: 2.2rem;
-    padding-left: 1.0rem; 
-    margin: 0;
+body {
+	margin: 0;
+	font-size: 28px;
+}
+
+a {
+	text-decoration: black;
+	color: #333;
+}
+
+ul {
+	list-style-type: none;
+}
+.banner {
+	background-color: #ffffff;
+	padding: 30px;
+}
+.navbar-brand-container {
+	font-size: 12pt;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	line-height: 12pt;
+	display: inline-block;
+	width: 20%;
+	margin: 0;
+	vertical-align: top;
+	text-align: center;
+}
+
+.navbar-brand-container a {
+	text-decoration-color: black;
+	text-decoration: none;
+}
+
+.navbar-brand-container a:hover {
+	text-decoration-color: black;
+	text-decoration: none;
+}
+
+.address-container {
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	font-size: 12pt;
+	display: inline-block;
+	width: 78%;
+	vertical-align: top;
+}
+/* Style the navbar */
+#navbar {
+	overflow: hidden;
+	background-color: rgb(18, 19, 18);
+	box-shadow: 5px 5px 15px #636363;
+	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	font-size: 12%;
+	text-align: center;
+	z-index: 1;
+}
+
+/* Navbar links */
+#navbar a {
+	float: left;
+	display: block;
+	color: rgb(248, 248, 248);
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 560%;
+	border-bottom: 3px solid transparent;
+	padding: 1%;
+}
+
+#navbar a:hover {
+	border-bottom: 3px solid rgb(236, 17, 17);
+}
+
+#navbar a.active {
+	border-bottom: 3px solid rgb(255, 255, 255);
+}
+
+/* Page content */
+.content {
+	padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+	padding-top: 60px;
+}
+
+#navbar .icon {
+	display: none;
+}
+
+@media screen and (max-width: 732px) {
+	#navbar li:not(:first-child):not(:last-child) {
+		display: none;
+	}
+	#navbar a.icon {
+		float: right;
+		display: block;
+	}
+}
+
+@media screen and (max-width: 732px) {
+	#navbar.responsive {
+		position: relative;
+	}
+	#navbar.responsive .icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	#navbar.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
 }
