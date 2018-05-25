@@ -72,6 +72,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-	<AntButton onClick={alert('Click function triggered!')}> Click Me</AntButton>,
+	<App />,
 	document.getElementById('react')
 );
