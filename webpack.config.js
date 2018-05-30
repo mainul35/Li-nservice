@@ -29,7 +29,7 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, 'src', 'main', 'resources', 'templates')
+        contentBase: path.join(__dirname, 'src', 'main', 'resources', 'templates') 
     },
     mode: "development"
 };

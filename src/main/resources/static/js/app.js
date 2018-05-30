@@ -53,7 +53,7 @@ class App extends React.Component {
 		this.state = {
 			employees: [],
 		};
-		this.componentDidMount = this.componentDidMount.bind(this);
+		// this.componentDidMount = this.componentDidMount.bind(this);
 	}
 
 	componentDidMount() {
@@ -72,6 +72,10 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-	<App />,
+	<div>
+		<App />
+		<AntButton onClick={()=>alert('clicked on me!!')}>Demo App</AntButton>
+	</div>
+	,
 	document.getElementById('react')
 );
