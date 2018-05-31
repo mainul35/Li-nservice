@@ -4,12 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mainul35.chainservice</groupId>
-	<artifactId>chainservice</artifactId>
+	<artifactId>chainservice-localshop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>chainservice</name>
-	<description>chainservice project</description>
+	<description>LocalShop is a project under chainservice umbrella. It is focused on extending the e-commerce system to the next level by letting customers order and being served the products of nearest local shop.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -50,6 +49,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.thymeleaf.extras</groupId>
+		    <artifactId>thymeleaf-extras-springsecurity4</artifactId>
 		</dependency>
 
 		<dependency>
@@ -118,4 +122,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	<name>LocalShop</name>
 </project>
