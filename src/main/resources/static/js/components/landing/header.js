@@ -1,11 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-const { SubMenu } = Menu;
-const { Header, Content, Footer, Sider } = Layout;
-
-import 'antd/dist/antd.css';
 import '../../../styles/base/_base.scss';
 
 class FrontEndHeader extends React.Component {
@@ -15,55 +9,33 @@ class FrontEndHeader extends React.Component {
 	}
 
 	onSelectMenuItem(e) {
-		let oldSelectedItem = document.querySelector('.ant-menu-item-selected');
-
-		if (oldSelectedItem) {
-			oldSelectedItem.classList.remove('ant-menu-item-selected');
-		}
-
-		if (e.target.tagName == 'I') {
-			e.target.parentElement.classList.add('ant-menu-item-selected');
-		} else {
-			e.target.classList.add('ant-menu-item-selected');
-		}
 	}
 
 	render() {
 		return (
-			<Layout>
-				<Header className="header">
-					<div className="logo" style={{ float: 'left' }}>
-						ChainService
-					</div>
-
-					<div style={{ float: 'right' }}>
-						<ul
-							className="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
-							role="menu"
-							style={{ lineHeight: '64px' }}
-						>
-							<li onClick={this.onSelectMenuItem} className="ant-menu-item right">
-								<Icon type="appstore" />
-							</li>
-						</ul>
-					</div>
-
-					<div style={{ float: 'right', marginRight: '10%' }}>
-						<ul
-							className="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
-							role="menu"
-							style={{ lineHeight: '64px' }}
-						>
-							<li onClick={this.onSelectMenuItem} className="ant-menu-item right">
-								Log in
-							</li>
-							<li onClick={this.onSelectMenuItem} className="ant-menu-item right">
-								Sign Up
-							</li>
-						</ul>
-					</div>
-				</Header>
-			</Layout>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <a className="navbar-brand" href="#">Navbar</a>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item active">
+                            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Features</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link disabled" href="#">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 		);
 	}
 }
