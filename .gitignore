@@ -5,6 +5,7 @@ target
 .classpath
 .project
 chainservice-auth-server.iml
+chainservice-localshop.iml
 npm-debug.log
 system_catalog.xml
 dist

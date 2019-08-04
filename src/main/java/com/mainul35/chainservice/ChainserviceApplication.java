@@ -2,14 +2,13 @@ package com.mainul35.chainservice;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Description;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.mainul35.chainservice.model.domain.sqlDomains.Authority;
@@ -25,10 +24,13 @@ import com.mainul35.chainservice.model.domain.sqlDomains.Employee;
 import com.mainul35.chainservice.model.domain.sqlDomains.UserEntity;
 import com.mainul35.chainservice.repositories.sqlRepositories.AuthorityRepository;
 import com.mainul35.chainservice.repositories.sqlRepositories.EmployeeRepository;
-import com.mainul35.chainservice.repositories.sqlRepositories.UserRepository;
-import com.mainul35.chainservice.securityConfig.SecurityWebApplicationInitializer;
 import com.mainul35.chainservice.service.UserService;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
+import org.thymeleaf.spring4.SpringTemplateEngine;
+import org.thymeleaf.spring4.view.ThymeleafViewResolver;
+import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import javax.servlet.ServletContext;
 import java.util.List;
 
 @RestController
@@ -44,7 +46,6 @@ basePackageClasses={
 })
 @EnableJpaRepositories(basePackages={"com.mainul35.chainservice.repositories.sqlRepositories"})
 @EntityScan(basePackages={"com.mainul35.chainservice.model.domain.sqlDomains"})
-@Import(value={SecurityWebApplicationInitializer.class})
 public class ChainserviceApplication extends WebMvcConfigurerAdapter implements CommandLineRunner{
 	
 	@Autowired UserService userService;
@@ -94,8 +95,38 @@ public class ChainserviceApplication extends WebMvcConfigurerAdapter implements 
         		 "/resources/static/**",
         		 "/resources/static/built/**",
         		 "/resources/static/js/**",
-        		 "/resources/static/css/**"
-        		 ).addResourceLocations("/resources/");
+        		 "/resources/static/css/**",
+				 "/built/**"
+        		 ).addResourceLocations(
+				 "/resources/",
+				 "/WEB-INF/resources/built/");
+
     }
+
+	@Override
+	public void configureViewResolvers(ViewResolverRegistry registry) {
+		super.configureViewResolvers(registry);
+		registry.viewResolver(viewResolver());
+	}
+
+	@Bean
+	@Description("Thymeleaf View Resolver")
+	public ThymeleafViewResolver viewResolver() {
+
+		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
+		templateResolver.setTemplateMode("HTML5");
+		templateResolver.setPrefix("WEB-INF/views/");
+		templateResolver.setSuffix(".html");
+		templateResolver.setCacheable(false);
+		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+		templateEngine.setTemplateResolver(templateResolver);
+		templateEngine.addDialect(new SpringSecurityDialect());
+		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+		viewResolver.setTemplateEngine(templateEngine);
+		viewResolver.setCache(false);
+		viewResolver.setCharacterEncoding("UTF-8");
+		viewResolver.setOrder(1);
+		return viewResolver;
+	}
 
 }

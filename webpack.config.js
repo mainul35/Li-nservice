@@ -4,7 +4,7 @@ module.exports = {
     devtool: 'cheap-module-eval-source-map',
     output: {
         path: __dirname,
-        filename: './src/main/resources/static/built/bundle.js'
+        filename: './src/main/webapp/WEB-INF/resources/built/bundle.js'
     },
     module: {
         rules: [
@@ -29,7 +29,7 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, 'src', 'main', 'resources', 'templates') 
+        contentBase: path.join(__dirname, 'src', 'main', 'webapp', 'WEB-INF', 'resources', 'built')
     },
     mode: "development"
 };

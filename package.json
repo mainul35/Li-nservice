@@ -34,7 +34,8 @@
 	},
 	"scripts": {
 		"watch": "webpack --watch -d",
-		"build": "webpack --watch"
+		"build": "webpack --watch",
+		"start": "webpack-dev-server -d"
 	},
 	"devDependencies": {
 		"babel-cli": "^6.26.0",

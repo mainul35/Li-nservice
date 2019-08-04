@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mainul35.chainservice.model.domain.sqlDomains.Employee;
 import com.mainul35.chainservice.model.domain.sqlDomains.UserEntity;
-import com.mainul35.chainservice.repositories.mongoRepositories.UserMongoRepository;
 import com.mainul35.chainservice.repositories.sqlRepositories.EmployeeRepository;
 import com.mainul35.chainservice.service.UserService;
 
