@@ -1,10 +1,11 @@
 .idea
 .settings
 node_modules
-target/**
+target
 .classpath
 .project
-*.iml
+chainservice-auth-server.iml
+chainservice-localshop.iml
 npm-debug.log
 system_catalog.xml
 dist
